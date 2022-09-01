@@ -33,3 +33,20 @@ const operator2 = (argv[2])
         console.log("File is deleted.");
     });
  }
+
+ if (operation=="rename")
+ {
+    fs.rename(operator1, operator2, function (err) {
+        if (err) throw err;
+        console.log('File Renamed.');
+      });
+ }
+
+ if (operation=="list")
+ {
+    fs.readdir( operator1, (err, files) => {
+        files.forEach(file => {
+          console.log(file);
+        });
+      });
+ }
